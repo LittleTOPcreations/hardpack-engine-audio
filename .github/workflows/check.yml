@@ -4,10 +4,10 @@ permissions:
   contents: read
 jobs:
   godot:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Godot 4.7.2
         run: |
           curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip -o /tmp/godot.zip
@@ -21,17 +21,19 @@ jobs:
           Godot_v4.7.2-stable_linux.x86_64 --headless --audio-driver Dummy --path . --script tests/mixer.gd
       - name: Build and test native limiter
         run: |
-          rustup update stable --no-self-update
-          cargo +stable test --release --locked --manifest-path native/Cargo.toml
-          cargo +stable build --release --locked --manifest-path native/Cargo.toml
+          rustup toolchain install 1.98.1 --profile minimal --no-self-update
+          cargo +1.98.1 test --release --locked --manifest-path native/Cargo.toml
+          cargo +1.98.1 build --release --locked --manifest-path native/Cargo.toml
           python3 tools/install_native.py
       - name: Native import and playback
+        env:
+          RUST_BACKTRACE: full
         run: |
-          Godot_v4.7.2-stable_linux.x86_64 --headless --editor --path . --import
+          gdb --batch --return-child-result -ex run -ex 'thread apply all bt' --args /tmp/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --editor --path . --import
           Godot_v4.7.2-stable_linux.x86_64 --headless --path . --script tests/smoke.gd
           Godot_v4.7.2-stable_linux.x86_64 --headless --audio-driver Dummy --path . --script tests/mixer.gd
           Godot_v4.7.2-stable_linux.x86_64 --headless --audio-driver Dummy --path . --script tests/native_clock.gd
       - name: Check offline tools
         run: |
-          cargo +stable test --locked --manifest-path tools/voice-bank/Cargo.toml
+          cargo +1.98.1 test --locked --manifest-path tools/voice-bank/Cargo.toml
           python3 -m py_compile tools/*.py
