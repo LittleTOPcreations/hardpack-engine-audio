@@ -22,7 +22,7 @@ jobs:
       - name: Build and test native limiter
         run: |
           rustup update stable --no-self-update
-          cargo +stable test --locked --manifest-path native/Cargo.toml
+          cargo +stable test --release --locked --manifest-path native/Cargo.toml
           cargo +stable build --release --locked --manifest-path native/Cargo.toml
           python3 tools/install_native.py
       - name: Native import and playback

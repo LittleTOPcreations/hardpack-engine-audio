@@ -100,7 +100,7 @@ cargo run --release --manifest-path tools/voice-bank/Cargo.toml -- pops --count 
 
 Available generated voices: `comet`, `vulcan`, `briar`, `wisp`, `goliath`. The generator is an offline tool; it does not run inside your game. [Validation notes](docs/validation.md) record the initial release's tested scope.
 
-[A GitHub Actions template](docs/ci-example.yml) is included for maintainers; automated CI is not enabled in this initial release.
+[GitHub Actions](https://github.com/LittleTOPcreations/hardpack-engine-audio/actions/workflows/check.yml) checks portable and native playback on Linux. The [workflow](.github/workflows/check.yml) runs on pushes and pull requests.
 
 ## Licence and credit
 

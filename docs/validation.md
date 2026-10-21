@@ -13,4 +13,4 @@ Checked before publishing:
 
 These are functional and numerical checks, not a substitute for listening on a range of speakers or profiling a large racing grid. The demo screenshot is captured from Godot. No claim is made that generated demo tones match real engines.
 
-A ready-to-use Linux GitHub Actions configuration is supplied in `docs/ci-example.yml`. It is not active: the publishing account's token lacked the `workflow` scope. To enable it with a suitably authorized account, copy it to `.github/workflows/check.yml`. No CI pass is claimed. Linux, macOS, mobile, Web, custom Godot builds and versions before 4.7 are not locally verified.
+GitHub Actions in `.github/workflows/check.yml` repeats import/integration/mixer checks on Linux and builds/tests the native extension. Consult the repository's Actions status for each run's outcome. macOS, mobile, Web, custom Godot builds and versions before 4.7 are not verified. Windows is tested locally; Linux is exercised by CI.
