@@ -29,8 +29,10 @@ python tools/install_native.py
 
 ```sh
 cargo test --locked --manifest-path native/Cargo.toml
-godot --headless --editor --path . --import
+godot --headless --editor --path . --import --frame-delay 1000
 godot --headless --audio-driver Dummy --path . --script tests/native_clock.gd
 ```
 
 The mixer test deliberately stalls scene updates for 550 ms and checks exact sample spacing. It exits with failure if the native class is unavailable. Remove `addons/engine_audio_native` and restart Godot to return to the portable limiter; do not leave a descriptor pointing to a missing library.
+
+The import command gives Godot's deferred editor documentation callbacks time to finish. Immediate headless shutdown with a native extension can hit a [known Godot race](https://github.com/godotengine/godot/issues/111048). This delay is only for the command-line import step; it is not needed during gameplay.
