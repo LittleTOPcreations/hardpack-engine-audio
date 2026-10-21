@@ -14,3 +14,5 @@ Checked before publishing:
 These are functional and numerical checks, not a substitute for listening on a range of speakers or profiling a large racing grid. The demo screenshot is captured from Godot. No claim is made that generated demo tones match real engines.
 
 GitHub Actions in `.github/workflows/check.yml` repeats import/integration/mixer checks on Linux and builds/tests the native extension. Consult the repository's Actions status for each run's outcome. macOS, mobile, Web, custom Godot builds and versions before 4.7 are not verified. Windows is tested locally; Linux is exercised by CI.
+
+Native headless import uses `--frame-delay 1000` to allow deferred editor documentation callbacks to finish before shutdown, following the workaround for [Godot issue #111048](https://github.com/godotengine/godot/issues/111048). Playback and sample-clock tests run at normal speed without that delay.

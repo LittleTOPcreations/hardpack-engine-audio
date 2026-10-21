@@ -85,7 +85,7 @@ See [design and provenance](docs/design.md) for what was extracted and what chan
 ## Development
 
 ```sh
-godot --headless --editor --path . --import
+godot --headless --editor --path . --import --frame-delay 1000
 godot --headless --path . --script tests/smoke.gd
 godot --headless --audio-driver Dummy --path . --script tests/mixer.gd
 cargo test --manifest-path native/Cargo.toml
