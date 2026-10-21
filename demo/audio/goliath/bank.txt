@@ -1,0 +1,11 @@
+# the old game's goliath voice rendered by `rally engine-voice`: 8 cylinders, unevenness 0.3, pipe 2.7 m x 1, mix 0.72
+# rpm file
+900 900.wav
+1062 1062.wav
+1384 1384.wav
+1804 1804.wav
+2352 2352.wav
+3066 3066.wav
+3996 3996.wav
+5209 5209.wav
+6790 6790.wav

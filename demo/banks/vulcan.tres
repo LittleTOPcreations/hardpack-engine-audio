@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EngineAudioBank" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://addons/engine_audio/engine_audio_bank.gd" id="bank"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/900.wav" id="s0"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/1062.wav" id="s1"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/1384.wav" id="s2"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/1804.wav" id="s3"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/2352.wav" id="s4"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/3066.wav" id="s5"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/3996.wav" id="s6"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/5209.wav" id="s7"]
+[ext_resource type="AudioStream" path="res://demo/audio/vulcan/6790.wav" id="s8"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-01.wav" id="s9"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-02.wav" id="s10"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-03.wav" id="s11"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-04.wav" id="s12"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-05.wav" id="s13"]
+[ext_resource type="AudioStream" path="res://demo/audio/pops/pop-06.wav" id="s14"]
+
+[resource]
+script = ExtResource("bank")
+label = "Vulcan / five cylinders"
+idle_rpm = 900
+redline_rpm = 7000
+rpms = PackedFloat32Array(900, 1062, 1384, 1804, 2352, 3066, 3996, 5209, 6790)
+loops = Array[AudioStream]([ExtResource("s0"), ExtResource("s1"), ExtResource("s2"), ExtResource("s3"), ExtResource("s4"), ExtResource("s5"), ExtResource("s6"), ExtResource("s7"), ExtResource("s8")])
+pops = Array[AudioStream]([ExtResource("s9"), ExtResource("s10"), ExtResource("s11"), ExtResource("s12"), ExtResource("s13"), ExtResource("s14")])

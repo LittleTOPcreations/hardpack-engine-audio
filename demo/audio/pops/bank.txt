@@ -1,0 +1,7 @@
+# the old game's exhaust pops rendered by `rally pops`; the shell picks one per pop
+pop-01.wav 0.337 s
+pop-02.wav 0.442 s
+pop-03.wav 0.376 s
+pop-04.wav 0.291 s
+pop-05.wav 0.305 s
+pop-06.wav 0.324 s

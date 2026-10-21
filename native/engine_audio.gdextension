@@ -1,0 +1,12 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = "4.7"
+reloadable = false
+
+[libraries]
+windows.debug.x86_64 = "res://addons/engine_audio_native/bin/engine_audio_native.dll"
+windows.release.x86_64 = "res://addons/engine_audio_native/bin/engine_audio_native.dll"
+linux.debug.x86_64 = "res://addons/engine_audio_native/bin/libengine_audio_native.so"
+linux.release.x86_64 = "res://addons/engine_audio_native/bin/libengine_audio_native.so"
+macos.debug = "res://addons/engine_audio_native/bin/libengine_audio_native.dylib"
+macos.release = "res://addons/engine_audio_native/bin/libengine_audio_native.dylib"
